@@ -1,0 +1,12 @@
+version: '2'
+services:
+  gitlab-runner:
+    image: fishead/gitlab-runner:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      CI_SERVER_URL: your-gitlab-ci-url-here
+      REGISTRATION_TOKEN: your-gitlab-runner-token-here
+      RUNNER_EXECUTOR: docker
+      DOCKER_IMAGE: docker:latest
+      DOCKER_VOLUMES: /var/run/docker.sock:/var/run/docker.sock
